@@ -17,7 +17,7 @@ Config = {
     "ScreenY":600,
     "ScreenTittle": "Momo's Snake Game",
     "Background": Colors["MintyGreen"],
-    "BlockSize": 20, 
+    "BlockSize": 10, 
     "Speed": 15
 }
 
@@ -37,8 +37,8 @@ Food = {
 }
 
 def RandmoizeFoodlocation():
-    Food["X"] = random.randrange(0,Config["ScreenX"],Config["BlockSize"])
-    Food["Y"] = random.randrange(0,Config["ScreenY"],Config["BlockSize"])
+    Food["X"] = round(random.randrange(0,Config["ScreenX"]-Config["BlockSize"]),-1)
+    Food["Y"] = round(random.randrange(0,Config["ScreenY"]-Config["BlockSize"]),-1)
 
 def DrawGame(screen):
     #Frames stacking on top of each other
