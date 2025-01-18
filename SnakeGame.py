@@ -54,12 +54,21 @@ while True:
         Snake["Y"] -= Config["BlockSize"]
     if Snake["Direction"] == "down":
         Snake["Y"] += Config["BlockSize"]
+    
                     
             
 
-    #frames stacking on top of each other
+    #Frames stacking on top of each other
     screen.fill(Config["MintyGreen"])
     pygame.draw.rect(screen, Config["Red"], [Snake["X"], Snake["Y"], Config["BlockSize"], Config["BlockSize"]])
     pygame.display.update()
+
+    #Check for wall collision
+    if Snake["X"] < 0 or Snake["X"] >= Config["ScreenX"] or Snake["Y"] < 0 or Snake["Y"] >= Config["ScreenY"]:
+        break
+    
+    #Control the refesh rate
     clock.tick(Config["Speed"])
+
+print("You hit the wall!!") 
 
